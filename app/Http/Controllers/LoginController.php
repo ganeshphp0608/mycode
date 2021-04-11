@@ -67,8 +67,7 @@ class LoginController extends Controller
        $data['file_name'] =$req->file('file')->getClientOriginalName();
        $data['file_size'] =$req->file('file')->getSize();
        $data['newfilename']= time().'_'.$req->file->getClientOriginalName();
-      $req->file->move(public_path('uploads'), $data['newfilename']);
-   // dd($data);
+      $req->file->move(public_path('uploads'), $data['newfilename']);  
     File::insert($data);
     return redirect('homepage')
            ->with('fileuploaded','File has been uploaded.');          
